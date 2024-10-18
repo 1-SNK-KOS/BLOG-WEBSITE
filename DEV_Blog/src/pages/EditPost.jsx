@@ -1,6 +1,6 @@
 import { useEffect , useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import appWriteService from "../appwrite/configuration"
+import postService from "../appwrite/conf";
 import { Container , PostForm } from "../components"
 
 function EditPost() {
@@ -11,7 +11,7 @@ const [post,setPost] = useState('');
 
 useEffect(() => {
     if(slug){
-        appWriteService.getPost(slug)
+        postService.getPost(slug)
                         .then((post) => setPost(post) )  //TODO:can check if post is there then uppdate post
     }
     else{

@@ -7,7 +7,7 @@ function AuthLayout({ children, authentication = true }) {
 
     console.log('AuthLayout Clicked ');   //REVIEW  
 
-    const userStatus = useSelector(state => state.auth.status);
+    const userStatus = useSelector(state => state.authReducer.status);
     const navigate = useNavigate();
     const [loader, setLoader] = useState(true);
 

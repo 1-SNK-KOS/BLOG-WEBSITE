@@ -11,23 +11,28 @@ function Post() {
     const [post, setPost] = useState('');
     const { slug } = useParams();
     const navigate = useNavigate();
+    const [img,setimg] = useState('')
 
 
     useEffect(() => {
         if (slug) {
             postService.getPost(slug)
                 .then((post) => {
-                    if (post) setPost(post)
+                    if (post){ 
+                        setPost(post)
+                        postService.filePreview(post.featuredImage).then((url) =>setimg(url.href))
+                    }
                     else navigate('/')
                 })
+            
         } else {
             navigate('/')
         }
     }, [slug, navigate])
 
-    const userData = useSelector(state => state.auth.userData);
+    const userData = useSelector(state => state.authReducer.userData);
 
-
+     console.log("Post Details :: ",post);
     const isAuthor = post && userData ? userData.$id === post.user_Id : false;
 
     const deletePost = () => {
@@ -46,7 +51,7 @@ function Post() {
         <div className="py-8">
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-                    <img src={postService.filePreview(post.featuredImg)}
+                    <img src={img}
                         alt={post.title}
                         className="rounded-xl"
                     />

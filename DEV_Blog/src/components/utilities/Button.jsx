@@ -20,8 +20,8 @@ function Button({
 }
 
 Button.propTypes = {
-    label: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    // label: PropTypes.string.isRequired,
+    // type: PropTypes.string.isRequired,
     className: PropTypes.string,
     textColor: PropTypes.string,
     bgColor: PropTypes.string,

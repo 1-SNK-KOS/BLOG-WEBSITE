@@ -34,10 +34,10 @@ function Select({
     )
 }
 
-Select.propTypes = {
-    options: PropTypes.array.isRequired,
-    label: PropTypes.string.isRequired,
-    className: PropTypes.string
-}
+// Select.propTypes = {
+//     options: PropTypes.array.isRequired,
+//     label: PropTypes.string.isRequired,
+//     className: PropTypes.string
+// }
 
 export default forwardRef(Select);

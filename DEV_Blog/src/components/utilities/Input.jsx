@@ -33,11 +33,11 @@ const Input = forwardRef(function Input({
     )
 })
 
-Input.propTypes = {
-    label: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    placeholder: PropTypes.string.isRequired,
-    className: PropTypes.string
-}
+// Input.propTypes = {
+//     label: PropTypes.string.isRequired,
+//     type: PropTypes.string.isRequired,
+//     placeholder: PropTypes.string.isRequired,
+//     className: PropTypes.string
+// }
 
 export default Input

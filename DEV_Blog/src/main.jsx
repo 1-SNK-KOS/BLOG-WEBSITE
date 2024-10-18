@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         element: <Post />,
       },
       {
-        path: '/user-post',
+        path: '/your-post',
         element: (
           <AuthLayout authentication>
             {" "}

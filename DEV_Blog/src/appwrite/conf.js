@@ -111,7 +111,7 @@ class PostService {
     }
 
 
-    async getAllPost(defQueries = Query.select(["status", "active"])) {
+    async getAllPost(defQueries = [Query.equal("status",[ "active"])]) {
 
         try {
             const getAllPost = await this.database.listDocuments(
@@ -135,11 +135,13 @@ class PostService {
     }
 
     async getUserPosts(user_Id) {
+        const id = String(user_Id);
+        console.log("getUser pOst :: ",user_Id)
         try {
             const userPosts = await this.database.listDocuments(
                 credentails.appwrite_database,
                 credentails.appwrite_collection,
-                Query.select(["user_Id", { user_Id }])
+                [Query.equal("user_Id", [ id ])]
             )
 
             if (userPosts) {
