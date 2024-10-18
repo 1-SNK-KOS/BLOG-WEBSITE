@@ -40,13 +40,13 @@ class PostService {
     }
 
 
-    async updatePost({ slug, title, content, status, user_Id, featuredImage }) {
+    async updatePost(slug,{ title, content, status, featuredImage }) {
         try {
             const postUpdate = await this.database.updateDocument(
                 credentails.appwrite_database,
                 credentails.appwrite_collection,
                 slug,
-                { title, content, status, user_Id, featuredImage }
+                { title, content, status, featuredImage }
             )
 
 

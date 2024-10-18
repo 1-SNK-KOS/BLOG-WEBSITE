@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { logout } from '../../store/authSlice'
+import {logoutPost } from '../../store/postSlice'
 import authService from '../../appwrite/auth'
 
 
@@ -10,7 +11,10 @@ function LogoutBtn() {
 
     const logoutSession = () => {
         authService.logout()
-            .then(() => dispatch(logout()))
+            .then(() => {
+                dispatch(logout())
+                dispatch(logoutPost())
+            })
             .catch((error) => console.log("Error while logout :: LogoutBTN :: ", error))   //REVIEW       
     }
 
